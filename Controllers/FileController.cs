@@ -5,4 +5,14 @@ using Microsoft.AspNetCore.Mvc;
 public class FileController : ControllerBase
 {
 
+    private List<FileUpload> files = new List<FileUpload>()
+    {
+        new FileUpload {Id = 1, FileName = "Example.txt", FileSize = 0, Guid = Guid.NewGuid()}
+    };
+
+    [HttpGet]
+    public IActionResult GetFiles()
+    {
+        return Ok(files);
+    }
 }
