@@ -7,5 +7,4 @@ public class FileUpload
     /// Automatically set this server-side
     /// </summary>
     public Guid Guid { get; set; } = Guid.NewGuid();
-
 }
