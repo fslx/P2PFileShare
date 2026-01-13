@@ -15,4 +15,21 @@ public class FileController : ControllerBase
     {
         return Ok(files);
     }
+
+    [HttpPost]
+    public IActionResult Post([FromBody] FileUpload upload)
+    {
+        var file = new
+        {
+            upload.Id,
+            upload.FileName,
+            upload.FileSize,
+            upload.Guid
+        };
+        if (!ModelState.IsValid)
+        {
+            return BadRequest();
+        }
+        return Ok(file);
+    }
 }
